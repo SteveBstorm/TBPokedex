@@ -1,0 +1,23 @@
+<nb-layout>
+    <nb-layout-column>
+        <nb-card *ngIf="pokedex" status="success">
+            <nb-card-header>
+                Pokédex
+            </nb-card-header>
+            <nb-card-body>
+                <nb-list>
+                    <nb-list-item *ngFor="let p of pokedex.results">
+                        <a style="cursor: pointer;" (click)="onClick(p.url)">{{p.name | titlecase}}</a>
+                    </nb-list-item>
+                </nb-list>
+            </nb-card-body>
+            <nb-card-footer>
+                <button [disabled]="!pokedex?.previous" nbButton (click)="clickPrevious()">Précédent</button>
+                <button nbButton [disabled]="!pokedex?.next" (click)="clickNext()">Suivant</button>
+            </nb-card-footer>
+        </nb-card>
+    </nb-layout-column>
+    <nb-layout-column>
+        <app-pokedetail [url]="toUrl"></app-pokedetail>
+    </nb-layout-column>
+</nb-layout>

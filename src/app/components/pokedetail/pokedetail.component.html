@@ -1,0 +1,13 @@
+<nb-card status="info" *ngIf="pokemon">
+    <nb-card-header>
+        <h2>{{ pokemon.name | uppercase }}</h2>
+    </nb-card-header>
+    <nb-card-body>
+        <p>Poids : {{ pokemon.weight }}</p>
+        <img [src]="pokemon.sprites.back_default" height="200">
+        <img [src]="pokemon.sprites.front_default" height="200">
+    </nb-card-body>
+    <nb-card-footer>
+        <img [src]="pokemon.sprites.other['official-artwork'].front_default">
+    </nb-card-footer>
+</nb-card>
